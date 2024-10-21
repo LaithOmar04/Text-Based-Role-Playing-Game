@@ -27,6 +27,7 @@ C++, Git, Cmake, Visual Studio Code
 Input/Output
 
 Input from the User: Name, Age, Gender, and Species of your Character
+
 Output: Your customized character with specified name, age, and attributes (set of attributes is based on the species of character; examples are health, attack, defense, XP bar)
 
 Features
