@@ -18,21 +18,48 @@
 ## Project Description
 Why this Project is Interesting to Us
 
-The project is interesting to us because we have all played and enjoyed online games, so we feel that it would be interesting to create our own.
+* The project is interesting to us because we have all played and enjoyed online games, so we feel that it would be interesting to create our own.
 
 Languages/Tools/Technologies
 
-C++, Git, Cmake, Visual Studio Code
+* C++, Git, Cmake, Visual Studio Code
 
 Input/Output
 
-Input from the User: Name, Age, Gender, and Species of your Character
+Input from the User: 
+* Keys will be used to input character information like Name, Age, Gender, and Species. 
+* Number keys will be used to input choices for different actions 
+    * (e.g. run, attack, defend).
+* Number keys will be used to choose from different moves 
+    * (e.g. after choosing to attack, the player can choose from a list of moves to use).
+* Keys will be used after certain story messages are outputted in order to continue the game 
+    * (e.g. "press any key to continue").
 
-Output: Your customized character with specified name, age, and attributes (set of attributes is based on the species of character; examples are health, attack, defense, XP bar)
+Output: 
+* Your customized character with specified name, age, and species.
+* Character attributes will be ouputted after each turn during combat 
+    * (e.g. health, attack, defense, speed, XP bar).
+* During battle, a list of possible actions will be outputted for the user to choose from 
+    * (e.g. run, attack, defend, various moves).
+* Messages will be outputted when the user encounters an enemy.
+* The results of a battle will be ouputted depending on whether the user wins or loses.
 
 Features
 
-The character is on the path to fight one big boss at the end, and along this path the character fights smaller battles against "mini-bosses". These battles happen against mini-bosses of increasingly difficulty, and they are labeled by level. For example, you first fight the Level 1 mini-boss, then onto Level 2 and so on until you reach the Big Boss to beat the game. In between certain mini-bosses, there are "random battle modes" where you can fight lower level opponents to gain experience and rewards. We will give the user options during each fight: They can choose whether they want to attack with their weapon, defend, or run away by typing in their choice. We also may potentially create a UI for the game.
+* The game will feature a story following the main character as they go on a path to defeat the big boss.
+* As the story progresses, the mc finds themselves in battles against smaller foes and, occasionally, mini-bosses.
+* The battles againt these foes will increase in difficulty as the mc continues on their journey.
+    * The increasing difficulty will be marked by the opponent's level, continuing until you reach the Big Boss and beat the game.
+* In between boss fights, there will be "random battle modes" where you can fight lower level opponents
+    * These battles will help the mc gain experience and rewards.
+* The game will feature rewards for the player after certain requirements are met.
+    * For example, the player can recieve a reward after defeating a mini-boss or reaching a certain level.
+    * The rewards given can range from extra XP to new moves and weapons.
+* The game will feature an experience system, where the mc gains XP in order to increase their own level.
+    * Increasing a player's level will lead to buffs such as increased health and attack.
+* A turn-based battle system will be featured, where the user picks from several options during their turn in a fight.
+    * These options will include actions like running away, defending, or attacking with their weapon of choice.
+* Though the game is text-based, we also may potentially create a UI for the game.
 
  > You also need to set up an empty project board using GitHub projects (board view with default columns). Make sure you add the board under your project repository. You should also have a Product Backlog and In testing columns added. All columns should be in the right order.
  > ## Phase II
