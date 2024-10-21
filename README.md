@@ -17,16 +17,20 @@
 
 ## Project Description
 Why this Project is Interesting to Us
+
 The project is interesting to us because we have all played and enjoyed online games, so we feel that it would be interesting to create our own.
 
 Languages/Tools/Technologies
+
 C++, Git, Cmake, Visual Studio Code
 
 Input/Output
+
 Input from the User: Name, Age, Gender, and Species of your Character
 Output: Your customized character with specified name, age, and attributes (set of attributes is based on the species of character; examples are health, attack, defense, XP bar)
 
 Features
+
 The character is on the path to fight one big boss at the end, and along this path the character fights smaller battles against "mini-bosses". These battles happen against mini-bosses of increasingly difficulty, and they are labeled by level. For example, you first fight the Level 1 mini-boss, then onto Level 2 and so on until you reach the Big Boss to beat the game. In between certain mini-bosses, there are "random battle modes" where you can fight lower level opponents to gain experience and rewards. We will give the user options during each fight: They can choose whether they want to attack with their weapon, defend, or run away by typing in their choice. We also may potentially create a UI for the game.
 
  > You also need to set up an empty project board using GitHub projects (board view with default columns). Make sure you add the board under your project repository. You should also have a Product Backlog and In testing columns added. All columns should be in the right order.
