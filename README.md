@@ -51,7 +51,6 @@ Features
     * These options will include actions like running away, defending, or attacking with their weapon of choice.
 * Though the game is text-based, we also may potentially create a UI for the game.
 
- > You also need to set up an empty project board using GitHub projects (board view with default columns). Make sure you add the board under your project repository. You should also have a Product Backlog and In testing columns added. All columns should be in the right order.
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
  > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
