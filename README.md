@@ -77,14 +77,23 @@ Start screen:
 * This screen is outputted at the very start of the game. Here, the user is prompted to input information about their desired character, including their name, gender, age, and species
 
 > Please enter the name of your character
+> 
 > Gon
+> 
 > What gender is your character? Enter 1 for male or 2 for female
+> 
 > 1
+> 
 > How old is your character?
+> 
 > 13
+> 
 > Finally, what species is your character? Please choose from the following options:
+> 
 > 1. Angel   2. Demon   3. Dragon   4. Wizard
+> 
 > 4
+> 
 > Welcome, Gon! Your journey begins now
 
 
@@ -92,10 +101,15 @@ Stats screen:
 * This screen is output after important events in the game, and it gives the current stats of the user’s character. These events include when the user first chooses their species, when the character levels up, and after the character defeats an enemy. A screen similar to this is output after every enemy turn in battle, but the “level” and “experience” lines are omitted.
 
 > Current Stats:
+> 
 > LEVEL: 0
+> 
 > EXPERIENCE: 0
+>
 > HEALTH: 100
+>
 > ATTACK: 20
+>
 > DEFENSE: 15
 
 
@@ -103,31 +117,43 @@ Battle Options Screen:
 * This screen is output before every one of the user’s turns in battle. The user is given an option on how they want to move forward in the battle.
 
 > The enemy facing you is waiting for your next move. What will you do? Please choose from the following:
+> 
 > 1. Run   2. Fight   3. Open Inventory
+>
 > 1
+>
 > You failed to run away!
 
 
 Fight Screen:
 * This screen is shown when the user decides to fight in a battle. A list of possible moves is given for the user to choose.
 > What move would you like to use? 
+>
 > 1. Fireball   2. Poison Dagger   3. Melee Attack
+>
 > Enter the number for the move you would like to use, or enter 0 to return
+>
 > 1
+>
 > You dealt 20 damage!
 
 Inventory screen:
 * This screen is shown when the user decides to open their inventory during their turn in battle.
 > You are currently holding the following items:
+>
 > 1. Heal Potion   2. XP Boost   3. Attack Potion
+>
 > Enter the number for the item you would like to use, or enter 0 to exit your inventory
+> 
 > 3
+>
 > Your attack stat has temporarily gone up by 20!
 
 Story screen:
 * This screen is shown during key moments in the progression of the games’ story (e.g the game’s start, defeating a boss, etc.). A message is shown depending on what happens in the story, and the user is prompted to continue. An example is shown:
 
 > Congratulations, you have defeated the mini-boss, Neferpitou! The local townsfolk are eternally grateful to you for saving their village, and they wish you luck on your journey. You now set your sights on defeating the next boss.
+>
 > Enter any key to continue…
 
 
