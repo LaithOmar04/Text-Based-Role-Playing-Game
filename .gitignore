@@ -1,0 +1,8 @@
+googletest
+CMakeFiles/
+MainExecutable
+Makefile
+UnitTests
+cmake_install.cmake
+lib/
+CMakeCache.txt
