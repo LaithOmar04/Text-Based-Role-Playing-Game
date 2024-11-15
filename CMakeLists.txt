@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.14)
 project(MyRPGGame)
 
+# Set the C++ standard
 set(CMAKE_CXX_STANDARD 17)
 
-# Add Google Test submodule directory
+# Add Google Test directory 
 add_subdirectory(googletest)
 
 # Main program executable
