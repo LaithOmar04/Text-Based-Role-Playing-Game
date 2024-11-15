@@ -56,7 +56,7 @@ Features
 
 ### Navigation Diagram
 
-https://drive.google.com/file/d/12VGnLu2cP_6bR5hV126DSawerQAieccA/view?usp=sharing
+https://drive.google.com/file/d/1ZZGJPSmTCBtNbqh8Th8uPnrlw9e59aU9/view?usp=sharing
 
 ### Screen Layouts
 Screen layouts with example inputs and outputs:
