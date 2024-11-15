@@ -13,7 +13,8 @@ main.cpp )
 
 # Test executable
 add_executable(UnitTests 
-test.cpp )
+test.cpp 
+character.cpp )
 
 # Link Google Test libraries to the UnitTests executable
 target_link_libraries(UnitTests gtest gtest_main)
