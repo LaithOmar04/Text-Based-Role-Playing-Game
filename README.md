@@ -149,7 +149,7 @@ Story screen:
 
 ## Class Diagram
 
-https://drive.google.com/file/d/1OnC3WOHGj-5jrzjUIn-aUmRo5_4ZJg14/view?usp=sharing
+https://drive.google.com/file/d/1aysvTaWajvOlio9Uh1EDi-s6d8EbrmNm/view?usp=sharing
  
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
