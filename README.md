@@ -56,7 +56,7 @@ Features
 
 ### Navigation Diagram
 
-https://drive.google.com/file/d/12VGnLu2cP_6bR5hV126DSawerQAieccA/view?usp=sharing
+https://drive.google.com/file/d/1ZZGJPSmTCBtNbqh8Th8uPnrlw9e59aU9/view?usp=sharing
 
 ### Screen Layouts
 Screen layouts with example inputs and outputs:
@@ -149,7 +149,7 @@ Story screen:
 
 ## Class Diagram
 
-https://drive.google.com/file/d/1OnC3WOHGj-5jrzjUIn-aUmRo5_4ZJg14/view?usp=sharing
+https://drive.google.com/file/d/1aysvTaWajvOlio9Uh1EDi-s6d8EbrmNm/view?usp=sharing
  
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
