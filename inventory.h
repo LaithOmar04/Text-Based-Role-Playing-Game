@@ -1,0 +1,20 @@
+#ifndef INVENTORY
+#define INVENTORY
+
+#include "item.h"
+#include <vector>
+
+using namespace std;
+
+class Inventory {
+    private:
+    vector<Item*> inventory;
+
+    public:
+    void addItem(Item* item);
+    void useItem(Character* player, int index);
+    void displayItems();
+
+};
+
+#endif
