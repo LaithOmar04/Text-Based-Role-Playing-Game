@@ -6,11 +6,26 @@ void Inventory::addItem(Item* item) {
 }
     
 void Inventory::useItem(Character* player, int index) {
-    this->inventory[index - 1]->useAbility(player);
+    this->inventory[index]->useAbility(player);
+    this->inventory.erase(this->inventory.begin() + index);
 }
     
 void Inventory::displayItems() {
+    if(this->inventory.size() == 0) {
+        cout << "Inventory is empty!" << endl;
+    }
+
     for(int i = 0; i < this->inventory.size(); ++i) {
         cout << (i + 1) << ". " << this->inventory[i]->getName() << " ";
     }
+
+    cout << endl;
+}
+
+Item* Inventory::getItem(int index) {
+    return this->inventory[index];
+}
+
+int Inventory::getSize() {
+    return this->inventory.size();
 }

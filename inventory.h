@@ -13,7 +13,9 @@ class Inventory {
     public:
     void addItem(Item* item);
     void useItem(Character* player, int index);
+    Item* getItem(int index);
     void displayItems();
+    int getSize();
 
 };
 

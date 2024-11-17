@@ -9,12 +9,23 @@ add_subdirectory(googletest)
 
 # Main program executable
 add_executable(MainExecutable 
-main.cpp )
+main.cpp
+character.cpp
+item.cpp
+attackItem.cpp
+defenseItem.cpp
+healthItem.cpp
+inventory.cpp )
 
 # Test executable
-add_executable(UnitTests 
-test.cpp 
-character.cpp )
+ADD_EXECUTABLE(UnitTests 
+test.cpp
+character.cpp
+item.cpp
+attackItem.cpp
+defenseItem.cpp
+healthItem.cpp
+inventory.cpp )
 
 # Link Google Test libraries to the UnitTests executable
 target_link_libraries(UnitTests gtest gtest_main)

@@ -3,6 +3,8 @@
 #include "attackItem.h"
 #include "defenseItem.h"
 #include "character.h"
+#include "item.h"
+#include "inventory.h"
 
 TEST(ItemTests, healthItemConstructor){
     healthItem item1("item1");
@@ -44,7 +46,8 @@ TEST(ItemTests, defenseItemAbility){
     defenseItem item1("item1");
     item1.useAbility(player1);
     EXPECT_EQ(player1->getDefense(), 20);
-=======
+}
+// ==================================================
 
 TEST(CharacterTest, demonInitial) {
     Character *demon = new Character("steven",19,"male","Demon");
@@ -85,4 +88,54 @@ TEST(CharacterTest, gender) {
     Character *dragon = new Character("steven",19,"male","Dragon");
     EXPECT_EQ (dragon->getGender(),"male");
  
+}
+
+// ==================================================
+TEST(InventoryTest, addItem) {
+    Inventory inventory;
+    Item* item = new attackItem("attack potion");
+    inventory.addItem(item);
+
+    EXPECT_EQ(inventory.getItem(0)->getName(), "attack potion");
+}
+
+TEST(InventoryTest, getItem) {
+    Inventory inventory;
+    Item* item = new defenseItem("defense potion");
+    inventory.addItem(item);
+
+    EXPECT_EQ(inventory.getItem(0)->getAbility(), "defense");
+}
+
+TEST(InventoryTest, getSize) {
+    Inventory inventory;
+    Item* item = new defenseItem("defense potion");
+    Item* item2 = new attackItem("attack potion");
+    Item* item3 = new healthItem("health potion");
+
+    inventory.addItem(item);
+    inventory.addItem(item2);
+    inventory.addItem(item3);
+
+    EXPECT_EQ(inventory.getSize(), 3);
+}
+
+TEST(InventoryTest, useItem) {
+    Character* player = new Character;
+    Inventory inventory;
+    Item* item = new healthItem("health potion");
+    inventory.addItem(item);
+    inventory.useItem(player, 0);
+
+    EXPECT_EQ(player->getHP(), 110);
+}
+
+TEST(InventoryTest, removeItemAfterUse) {
+    Character* player = new Character;
+    Inventory inventory;
+    Item* item = new healthItem("health potion");
+    inventory.addItem(item);
+    inventory.useItem(player, 0);
+
+    EXPECT_EQ(inventory.getSize(), 0);
 }
