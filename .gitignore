@@ -6,3 +6,4 @@ UnitTests
 cmake_install.cmake
 lib/
 CMakeCache.txt
+.vscode/
