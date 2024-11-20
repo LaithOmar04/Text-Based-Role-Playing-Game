@@ -1,4 +1,5 @@
 #include "item.h"
+#include "character.h"
 #include <iostream>
 using namespace std;
 

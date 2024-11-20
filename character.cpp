@@ -1,4 +1,6 @@
 #include "character.h"
+#include "inventory.h"
+#include "item.h"
 #include <iostream>
 
 using namespace std;
@@ -28,6 +30,18 @@ void Character::setDefense(int defense) { this->defense = defense; }
 void Character::setName(string name) { this->name = name; }
 void Character::setAge(int age) { this->age = age; }
 void Character::setGender(string gender) { this->gender = gender; }
+
+void Character::addItem(Item* i){
+    inventory->addItem(i);
+}
+
+void Character::useItem(int i){
+    inventory->useItem(this, i);
+}
+
+void Character::displayInventory(){
+    inventory->displayItems();
+}
 
 // Print character info
 void Character::printCharacterInfo() const {

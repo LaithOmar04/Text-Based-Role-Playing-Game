@@ -98,7 +98,6 @@ TEST(CharacterTest, gender) {
     Character *dragon = new Dragon;
     dragon->setGender("male");
     EXPECT_EQ (dragon->getGender(),"male");
- 
 }
 
 // ==================================================

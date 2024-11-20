@@ -1,10 +1,12 @@
 #ifndef INVENTORY
 #define INVENTORY
 
-#include "item.h"
 #include <vector>
 
 using namespace std;
+
+class Item;
+class Character;
 
 class Inventory {
     private:

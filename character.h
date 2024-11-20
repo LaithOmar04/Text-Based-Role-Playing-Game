@@ -4,6 +4,9 @@
 #include <string>
 using namespace std;
 
+class Inventory;
+class Item;
+
 class Character {
 protected:
     string name;
@@ -15,6 +18,7 @@ protected:
     int attack;
     int hp;
     int defense;
+    Inventory* inventory;
 
 public:
     Character();
@@ -38,6 +42,9 @@ public:
     void setName(string name);
     void setAge(int age);
     void setGender(string gender);
+    void addItem(Item* i);
+    void useItem(int i);
+    void displayInventory();
 
     virtual void initialize() = 0;
 
