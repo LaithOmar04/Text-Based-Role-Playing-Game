@@ -15,7 +15,11 @@ item.cpp
 attackItem.cpp
 defenseItem.cpp
 healthItem.cpp
-inventory.cpp )
+inventory.cpp
+wizard.cpp
+demon.cpp
+dragon.cpp
+angel.cpp )
 
 # Test executable
 ADD_EXECUTABLE(UnitTests 
@@ -25,7 +29,11 @@ item.cpp
 attackItem.cpp
 defenseItem.cpp
 healthItem.cpp
-inventory.cpp )
+inventory.cpp
+wizard.cpp
+demon.cpp
+dragon.cpp
+angel.cpp )
 
 # Link Google Test libraries to the UnitTests executable
 target_link_libraries(UnitTests gtest gtest_main)

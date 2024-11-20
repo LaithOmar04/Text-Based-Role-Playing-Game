@@ -8,25 +8,6 @@ Character::Character()
     : name(""), age(0), level(1), gender(""), species(""),
       xp(0), attack(10), hp(100), defense(10) {}
 
-// constructor
-Character::Character( const string& name, int age, const string& gender, const string& species)
-    : name(name), age(age), level(1), gender(gender), species(species),
-      xp(0), attack(10), hp(100), defense(10) {
-    // Initialize stats based on species
-    if (species == "Dragon") {
-        initializeDragon();
-    } 
-    else if (species == "Demon") {
-        initializeDemon();
-    } 
-    else if (species == "Angel") {
-        initializeAngel();
-    } 
-    else if (species == "Wizard") {
-        initializeWizard();
-    }
-}
-
 // Getters
 string Character::getName() const { return name; }
 int Character::getAge() const { return age; }
@@ -44,31 +25,9 @@ void Character::setXP(int xp) { this->xp = xp; }
 void Character::setAttack(int attack) { this->attack = attack; }
 void Character::setHP(int hp) { this->hp = hp; }
 void Character::setDefense(int defense) { this->defense = defense; }
-
-void Character::initializeDragon() {
-    attack = 20;  // Base 10 + 10 for Dragon
-    defense = 10; 
-    hp = 100;     
-}
-
-
-void Character::initializeDemon() {
-    attack = 15;  // Base 10 + 5 for Demon
-    defense = 15; // Base 10 + 5 for Demon
-    hp = 100;     
-}
-
-void Character::initializeAngel() {
-    attack = 10;  
-    defense = 10; 
-    hp = 130;     // Base 100 + 30 for Angel
-}
-
-void Character::initializeWizard() {
-    attack = 15;  // Base 10 + 5 for Wizard
-    defense = 10;
-    hp = 110;     // Base 100 + 10 for Wizard
-}
+void Character::setName(string name) { this->name = name; }
+void Character::setAge(int age) { this->age = age; }
+void Character::setGender(string gender) { this->gender = gender; }
 
 // Print character info
 void Character::printCharacterInfo() const {

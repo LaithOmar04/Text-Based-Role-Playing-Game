@@ -3,6 +3,10 @@
 #include "attackItem.h"
 #include "defenseItem.h"
 #include "character.h"
+#include "demon.h"
+#include "dragon.h"
+#include "angel.h"
+#include "wizard.h"
 #include "item.h"
 #include "inventory.h"
 
@@ -14,7 +18,7 @@ TEST(ItemTests, healthItemConstructor){
 }
 
 TEST(ItemTests, healthItemAbility){
-    Character* player1 = new Character;
+    Character* player1 = new Demon;
     healthItem item1("item1");
     item1.useAbility(player1);
     EXPECT_EQ(player1->getHP(), 110);
@@ -28,7 +32,7 @@ TEST(ItemTests, attackItemConstructor){
 }
 
 TEST(ItemTests, attackItemAbility){
-    Character* player1 = new Character;
+    Character* player1 = new Dragon;
     attackItem item1("item1");
     item1.useAbility(player1);
     EXPECT_EQ(player1->getAttack(), 20);
@@ -42,7 +46,7 @@ TEST(ItemTests, defenseItemConstructor){
 }
 
 TEST(ItemTests, defenseItemAbility){
-    Character* player1 = new Character;
+    Character* player1 = new Angel;
     defenseItem item1("item1");
     item1.useAbility(player1);
     EXPECT_EQ(player1->getDefense(), 20);
@@ -50,42 +54,49 @@ TEST(ItemTests, defenseItemAbility){
 // ==================================================
 
 TEST(CharacterTest, demonInitial) {
-    Character *demon = new Character("steven",19,"male","Demon");
+    Character *demon = new Demon;
+    demon->initialize();
     EXPECT_EQ (demon->getSpecies(),"Demon");
     EXPECT_EQ (demon->getAttack(),15);
     EXPECT_EQ (demon->getDefense(),15);
 }
 TEST(CharacterTest, angelInitial) {
-    Character *angel = new Character("steven",19,"male","Angel");
+    Character *angel = new Angel;
+    angel->initialize();
     EXPECT_EQ (angel->getSpecies(),"Angel");
     EXPECT_EQ (angel->getHP(),130);
  
 }
 TEST(CharacterTest, dragonInitial) {
-    Character *dragon = new Character("steven",19,"male","Dragon");
+    Character *dragon = new Dragon;
+    dragon->initialize();
     EXPECT_EQ (dragon->getSpecies(),"Dragon");
     EXPECT_EQ (dragon->getAttack(),20);
  
 }
 TEST(CharacterTest, wizardInitial) {
-    Character *wizard = new Character("steven",19,"male","Wizard");
+    Character *wizard = new Wizard;
+    wizard->initialize();
     EXPECT_EQ (wizard->getSpecies(),"Wizard");
     EXPECT_EQ (wizard->getAttack(),15);
-     EXPECT_EQ (wizard->getHP(),110);
+    EXPECT_EQ (wizard->getHP(),110);
  
 }
 TEST(CharacterTest, name) {
-    Character *dragon = new Character("steven",19,"male","Dragon");
+    Character *dragon = new Dragon;
+    dragon->setName("steven");
     EXPECT_EQ (dragon->getName(),"steven");
  
 }
 TEST(CharacterTest, age) {
-    Character *dragon = new Character("steven",19,"male","Dragon");
+    Character *dragon = new Dragon;
+    dragon->setAge(19);
     EXPECT_EQ (dragon->getAge(),19);
  
 }
 TEST(CharacterTest, gender) {
-    Character *dragon = new Character("steven",19,"male","Dragon");
+    Character *dragon = new Dragon;
+    dragon->setGender("male");
     EXPECT_EQ (dragon->getGender(),"male");
  
 }
@@ -121,7 +132,7 @@ TEST(InventoryTest, getSize) {
 }
 
 TEST(InventoryTest, useItem) {
-    Character* player = new Character;
+    Character* player = new Wizard;
     Inventory inventory;
     Item* item = new healthItem("health potion");
     inventory.addItem(item);
@@ -131,7 +142,7 @@ TEST(InventoryTest, useItem) {
 }
 
 TEST(InventoryTest, removeItemAfterUse) {
-    Character* player = new Character;
+    Character* player = new Angel;
     Inventory inventory;
     Item* item = new healthItem("health potion");
     inventory.addItem(item);
