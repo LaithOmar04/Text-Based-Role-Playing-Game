@@ -9,6 +9,7 @@
 #include "include/wizard.h"
 #include "include/item.h"
 #include "include/inventory.h"
+#include <sstream>
 
 TEST(ItemTests, healthItemConstructor){
     healthItem item1("item1");
@@ -35,7 +36,7 @@ TEST(ItemTests, attackItemAbility){
     Character* player1 = new Dragon;
     attackItem item1("item1");
     item1.useAbility(player1);
-    EXPECT_EQ(player1->getAttack(), 20);
+    EXPECT_EQ(player1->getAttack(), 30);
 }
 
 TEST(ItemTests, defenseItemConstructor){
@@ -55,28 +56,28 @@ TEST(ItemTests, defenseItemAbility){
 
 TEST(CharacterTest, demonInitial) {
     Character *demon = new Demon;
-    demon->initialize();
+
     EXPECT_EQ (demon->getSpecies(),"Demon");
     EXPECT_EQ (demon->getAttack(),15);
     EXPECT_EQ (demon->getDefense(),15);
 }
 TEST(CharacterTest, angelInitial) {
     Character *angel = new Angel;
-    angel->initialize();
+    
     EXPECT_EQ (angel->getSpecies(),"Angel");
     EXPECT_EQ (angel->getHP(),130);
  
 }
 TEST(CharacterTest, dragonInitial) {
     Character *dragon = new Dragon;
-    dragon->initialize();
+ 
     EXPECT_EQ (dragon->getSpecies(),"Dragon");
     EXPECT_EQ (dragon->getAttack(),20);
  
 }
 TEST(CharacterTest, wizardInitial) {
     Character *wizard = new Wizard;
-    wizard->initialize();
+
     EXPECT_EQ (wizard->getSpecies(),"Wizard");
     EXPECT_EQ (wizard->getAttack(),15);
     EXPECT_EQ (wizard->getHP(),110);
@@ -137,7 +138,7 @@ TEST(InventoryTest, useItem) {
     inventory.addItem(item);
     inventory.useItem(player, 0);
 
-    EXPECT_EQ(player->getHP(), 110);
+    EXPECT_EQ(player->getHP(), 120);
 }
 
 TEST(InventoryTest, removeItemAfterUse) {
@@ -149,3 +150,121 @@ TEST(InventoryTest, removeItemAfterUse) {
 
     EXPECT_EQ(inventory.getSize(), 0);
 }
+// ==================================================
+TEST(CharacterTest, PrintInfoDra) {
+    Character *dragon = new Dragon;
+    dragon->setGender("male");
+    dragon->setAge(20);
+    dragon->setName("steven");
+     // Capture output
+    std::ostringstream output;
+    std::streambuf* oldCoutBuf = std::cout.rdbuf(output.rdbuf());
+
+    // Call the function
+    dragon->printCharacterInfo();
+
+    // Restore the original std::cout buffer
+    std::cout.rdbuf(oldCoutBuf);
+
+    // Check output
+    std::string expectedOutput =
+        "Name: steven\n"
+        "Age: 20\n"
+        "Level: 1\n"
+        "Gender: male\n"
+        "Species: Dragon\n"
+        "XP: 0\n"
+        "Attack: 20\n"
+        "HP: 100\n"
+        "Defense: 10\n";
+
+    EXPECT_EQ(output.str(), expectedOutput);
+}
+TEST(CharacterTest, PrintInfoDem) {
+    Character *demon = new Demon;
+    demon->setGender("male");
+    demon->setAge(20);
+    demon->setName("steven");
+     // Capture output
+    std::ostringstream output;
+    std::streambuf* oldCoutBuf = std::cout.rdbuf(output.rdbuf());
+
+    // Call the function
+    demon->printCharacterInfo();
+
+    // Restore the original std::cout buffer
+    std::cout.rdbuf(oldCoutBuf);
+
+    // Check output
+    std::string expectedOutput =
+        "Name: steven\n"
+        "Age: 20\n"
+        "Level: 1\n"
+        "Gender: male\n"
+        "Species: Demon\n"
+        "XP: 0\n"
+        "Attack: 15\n"
+        "HP: 100\n"
+        "Defense: 15\n";
+
+    EXPECT_EQ(output.str(), expectedOutput);
+}
+TEST(CharacterTest, PrintInfoAng) {
+    Character *angel = new Angel;
+    angel->setGender("male");
+    angel->setAge(20);
+    angel->setName("steven");
+     // Capture output
+    std::ostringstream output;
+    std::streambuf* oldCoutBuf = std::cout.rdbuf(output.rdbuf());
+
+    // Call the function
+    angel->printCharacterInfo();
+
+    // Restore the original std::cout buffer
+    std::cout.rdbuf(oldCoutBuf);
+
+    // Check output
+    std::string expectedOutput =
+        "Name: steven\n"
+        "Age: 20\n"
+        "Level: 1\n"
+        "Gender: male\n"
+        "Species: Angel\n"
+        "XP: 0\n"
+        "Attack: 10\n"
+        "HP: 130\n"
+        "Defense: 10\n";
+
+    EXPECT_EQ(output.str(), expectedOutput);
+}
+TEST(CharacterTest, PrintInfoWiz) {
+    Character *wizard = new Wizard;
+    wizard->setGender("male");
+    wizard->setAge(20);
+    wizard->setName("steven");
+     // Capture output
+    std::ostringstream output;
+    std::streambuf* oldCoutBuf = std::cout.rdbuf(output.rdbuf());
+
+    // Call the function
+    wizard->printCharacterInfo();
+
+    // Restore the original std::cout buffer
+    std::cout.rdbuf(oldCoutBuf);
+
+    // Check output
+    std::string expectedOutput =
+        "Name: steven\n"
+        "Age: 20\n"
+        "Level: 1\n"
+        "Gender: male\n"
+        "Species: Wizard\n"
+        "XP: 0\n"
+        "Attack: 15\n"
+        "HP: 110\n"
+        "Defense: 10\n";
+
+    EXPECT_EQ(output.str(), expectedOutput);
+}
+
