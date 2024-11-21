@@ -1,4 +1,4 @@
-#include "dragon.h"
+#include "../include/dragon.h"
 
 using namespace std;
 

@@ -1,4 +1,4 @@
-#include "demon.h"
+#include "../include/demon.h"
 
 using namespace std;
 

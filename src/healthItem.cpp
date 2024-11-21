@@ -1,4 +1,4 @@
-#include "healthItem.h"
+#include "../include/healthItem.h"
 #include <iostream>
 
 healthItem::healthItem(string n){

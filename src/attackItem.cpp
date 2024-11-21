@@ -1,4 +1,4 @@
-#include "attackItem.h"
+#include "../include/attackItem.h"
 #include <iostream>
 
 attackItem::attackItem(string n){

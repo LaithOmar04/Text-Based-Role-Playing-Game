@@ -1,4 +1,4 @@
-#include "wizard.h"
+#include "../include/wizard.h"
 
 using namespace std;
 
