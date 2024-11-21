@@ -4,8 +4,11 @@
 #include <string>
 using namespace std;
 
+class Inventory;
+class Item;
+
 class Character {
-private:
+protected:
     string name;
     int age;
     int level;
@@ -15,10 +18,10 @@ private:
     int attack;
     int hp;
     int defense;
+    Inventory* inventory;
 
 public:
     Character();
-    Character( const string& name, int age, const string& gender, const string& species);
 
     string getName() const;
     int getAge() const;
@@ -36,12 +39,14 @@ public:
     void setAttack(int attack);
     void setHP(int hp);
     void setDefense(int defense);
+    void setName(string name);
+    void setAge(int age);
+    void setGender(string gender);
+    void addItem(Item* i);
+    void useItem(int i);
+    void displayInventory();
 
-    // Functions for initializing each species
-    void initializeDragon();
-    void initializeDemon();
-    void initializeAngel();
-    void initializeWizard();
+    virtual void initialize() = 0;
 
     // Print character info
     void printCharacterInfo() const;

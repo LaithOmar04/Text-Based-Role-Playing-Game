@@ -4,6 +4,8 @@
 #include <string>
 #include "character.h"
 
+class Character;
+
 class Item {
 protected:
     std::string name;
