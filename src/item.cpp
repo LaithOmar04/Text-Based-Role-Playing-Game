@@ -1,5 +1,5 @@
-#include "item.h"
-#include "character.h"
+#include "../include/item.h"
+#include "../include/character.h"
 #include <iostream>
 using namespace std;
 

@@ -1,4 +1,4 @@
-#include "defenseItem.h"
+#include "../include/defenseItem.h"
 #include <iostream>
 
 defenseItem::defenseItem(string n){

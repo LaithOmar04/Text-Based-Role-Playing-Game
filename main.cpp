@@ -1,16 +1,15 @@
 #include <iostream>
-#include "item.h"
-#include "healthItem.h"
-#include "attackItem.h"
-#include "defenseItem.h"
-#include "character.h"
-#include "inventory.h"
+#include "include/item.h"
+#include "include/healthItem.h"
+#include "include/attackItem.h"
+#include "include/defenseItem.h"
+#include "include/character.h"
+#include "include/inventory.h"
 
 using namespace std;
 
 int main() {
 
-    
 
     return 0;
 }

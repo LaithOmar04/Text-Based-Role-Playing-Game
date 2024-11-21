@@ -1,6 +1,6 @@
-#include "inventory.h"
-#include "character.h"
-#include "item.h"
+#include "../include/inventory.h"
+#include "../include/character.h"
+#include "../include/item.h"
 #include <iostream>
 
 void Inventory::addItem(Item* item) {
