@@ -5,6 +5,7 @@
 
 class Dragon : public Character {
 public:
+    Dragon();
     void initialize();
 };
 
