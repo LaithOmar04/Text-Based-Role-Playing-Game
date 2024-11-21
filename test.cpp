@@ -180,3 +180,17 @@ TEST(RewardSystemTest, receiveHealthItem) {
 
     EXPECT_EQ(player->getHP(), 140);
 }
+
+TEST(RewardSystemTest, printRewards) {
+    RewardSystem rewards;
+     // Capture output
+    std::ostringstream output;
+    std::streambuf* oldCoutBuf = std::cout.rdbuf(output.rdbuf());
+    // Call the function
+    rewards.displayRewards();
+    // Restore the original std::cout buffer
+    std::cout.rdbuf(oldCoutBuf);
+    // Check output
+    std::string expectedOutput = "1. Attack Potion, 2. Defense Potion, 3. Health Potion\n";
+    EXPECT_EQ(output.str(), expectedOutput);
+}
