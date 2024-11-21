@@ -9,6 +9,7 @@
 #include "include/wizard.h"
 #include "include/item.h"
 #include "include/inventory.h"
+#include "include/rewardSystem.h"
 
 TEST(ItemTests, healthItemConstructor){
     healthItem item1("item1");
@@ -101,6 +102,7 @@ TEST(CharacterTest, gender) {
 }
 
 // ==================================================
+
 TEST(InventoryTest, addItem) {
     Inventory inventory;
     Item* item = new attackItem("attack potion");
@@ -148,4 +150,33 @@ TEST(InventoryTest, removeItemAfterUse) {
     inventory.useItem(player, 0);
 
     EXPECT_EQ(inventory.getSize(), 0);
+}
+
+// ==================================================
+
+TEST(RewardSystemTest, receiveAttackItem) {
+    Character* player = new Angel;
+    RewardSystem rewards;
+    rewards.rewardItem(player, 1);
+    player->useItem(0);
+
+    EXPECT_EQ(player->getAttack(), 20);
+}
+
+TEST(RewardSystemTest, receiveDefenseItem) {
+    Character* player = new Angel;
+    RewardSystem rewards;
+    rewards.rewardItem(player, 2);
+    player->useItem(0);
+
+    EXPECT_EQ(player->getDefense(), 20);
+}
+
+TEST(RewardSystemTest, receiveHealthItem) {
+    Character* player = new Angel;
+    RewardSystem rewards;
+    rewards.rewardItem(player, 3);
+    player->useItem(0);
+
+    EXPECT_EQ(player->getHP(), 140);
 }

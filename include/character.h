@@ -2,10 +2,10 @@
 #define CHARACTER_H
 
 #include <string>
-using namespace std;
+#include "inventory.h"
+#include "item.h"
 
-class Inventory;
-class Item;
+using namespace std;
 
 class Character {
 protected:
@@ -18,7 +18,7 @@ protected:
     int attack;
     int hp;
     int defense;
-    Inventory* inventory;
+    Inventory inventory;
 
 public:
     Character();

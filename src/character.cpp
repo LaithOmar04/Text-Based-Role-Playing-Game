@@ -32,15 +32,15 @@ void Character::setAge(int age) { this->age = age; }
 void Character::setGender(string gender) { this->gender = gender; }
 
 void Character::addItem(Item* i){
-    inventory->addItem(i);
+    inventory.addItem(i);
 }
 
 void Character::useItem(int i){
-    inventory->useItem(this, i);
+    inventory.useItem(this, i);
 }
 
 void Character::displayInventory(){
-    inventory->displayItems();
+    inventory.displayItems();
 }
 
 // Print character info
