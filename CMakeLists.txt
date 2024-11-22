@@ -20,6 +20,7 @@ src/attackItem.cpp
 src/defenseItem.cpp
 src/healthItem.cpp
 src/inventory.cpp
+src/rewardSystem.cpp
 src/enemy.cpp
 src/finalBoss.cpp
 src/miniBoss.cpp
@@ -38,6 +39,7 @@ src/attackItem.cpp
 src/defenseItem.cpp
 src/healthItem.cpp
 src/inventory.cpp
+src/rewardSystem.cpp 
 src/enemy.cpp
 src/finalBoss.cpp
 src/miniBoss.cpp

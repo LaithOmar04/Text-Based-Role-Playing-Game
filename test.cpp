@@ -9,6 +9,7 @@
 #include "include/wizard.h"
 #include "include/item.h"
 #include "include/inventory.h"
+#include "include/rewardSystem.h"
 #include "include/enemy.h"
 #include "include/finalBoss.h"
 #include "include/miniBoss.h"
@@ -106,6 +107,7 @@ TEST(CharacterTest, gender) {
 }
 
 // ==================================================
+
 TEST(InventoryTest, addItem) {
     Inventory inventory;
     Item* item = new attackItem("attack potion");
@@ -154,7 +156,47 @@ TEST(InventoryTest, removeItemAfterUse) {
 
     EXPECT_EQ(inventory.getSize(), 0);
 }
-// ==================================================
+
+TEST(RewardSystemTest, receiveAttackItem) {
+    Character* player = new Angel;
+    RewardSystem rewards;
+    rewards.rewardItem(player, 1);
+    player->useItem(0);
+
+    EXPECT_EQ(player->getAttack(), 20);
+}
+
+TEST(RewardSystemTest, receiveDefenseItem) {
+    Character* player = new Angel;
+    RewardSystem rewards;
+    rewards.rewardItem(player, 2);
+    player->useItem(0);
+
+    EXPECT_EQ(player->getDefense(), 20);
+}
+
+TEST(RewardSystemTest, receiveHealthItem) {
+    Character* player = new Angel;
+    RewardSystem rewards;
+    rewards.rewardItem(player, 3);
+    player->useItem(0);
+
+    EXPECT_EQ(player->getHP(), 140);
+}
+
+TEST(RewardSystemTest, printRewards) {
+    RewardSystem rewards;
+     // Capture output
+    std::ostringstream output;
+    std::streambuf* oldCoutBuf = std::cout.rdbuf(output.rdbuf());
+    // Call the function
+    rewards.displayRewards();
+    // Restore the original std::cout buffer
+    std::cout.rdbuf(oldCoutBuf);
+    // Check output
+    std::string expectedOutput = "1. Attack Potion, 2. Defense Potion, 3. Health Potion\n";
+    EXPECT_EQ(output.str(), expectedOutput);
+}
 TEST(CharacterTest, PrintInfoDra) {
     Character *dragon = new Dragon;
     dragon->setGender("male");
@@ -428,4 +470,3 @@ TEST(EnemyTests, printInfoFinalBoss){
 
     EXPECT_EQ(output.str(), expectedOutput);
 }
-
