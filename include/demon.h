@@ -5,6 +5,7 @@
 
 class Demon : public Character {
 public:
+    Demon();
     void initialize();
 };
 

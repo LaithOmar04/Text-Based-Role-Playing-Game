@@ -5,6 +5,7 @@
 
 class Wizard : public Character {
 public:
+    Wizard();
     void initialize();
 };
 
