@@ -45,6 +45,8 @@ public:
     void addItem(Item* i);
     void useItem(int i);
     void displayInventory();
+    int getInventorySize();
+
 
     virtual void initialize() = 0;
 

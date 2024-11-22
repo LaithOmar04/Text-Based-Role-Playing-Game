@@ -42,6 +42,9 @@ void Character::useItem(int i){
 void Character::displayInventory(){
     inventory->displayItems();
 }
+int Character::getInventorySize() {
+    return inventory->getSize();
+}
 
 // Print character info
 void Character::printCharacterInfo() const {
