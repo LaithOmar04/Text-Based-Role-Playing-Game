@@ -1,37 +1,30 @@
 #include "../include/enemy.h"
 #include <iostream>
 
-using std::rand;
-using std::cout;
-using std::endl;
+using namespace std;
 
-void Enemy::initRandEnemy() {
-   health = 100 - (rand() % 10);
-   attack = 15 - (rand() % 5);
-   defence = 10 - (rand() % 5);
-}
-void Enemy::initMiniBoss() {
-   health = 300 - (rand() % 10);
-   attack = 35 - (rand() % 7);
-   defence = 30 - (rand() % 10);
-}
-void Enemy::initFinalBoss() {
-   health = 600;
-   attack = 50;
-   defence = 40;
-}
-int Enemy::getHealth() {
-   return health;
-}
-void Enemy::takeDamage(int damage) { // becomes 0 if negative
-   health -= damage;
-   if (health < 0) {
-       health = 0;
-   }
-}
-void Enemy::displayStatus() {
-   cout << name << "'s Status:" << endl;
-   cout << "Health Remaining: " << health << endl;
+string Enemy::getName() const {return this->name;}
+int Enemy::getHP() const {return this->hp;}
+string Enemy::getType() const {return this->type;}
+int Enemy::getAttack() const {return this->attack;}
+string Enemy::getGender() const {return this->gender;}
+int Enemy::getDefense() const {return this->defense;}
+int Enemy::getLevel() const {return this->level;}
+
+void Enemy::setName(string name) {this->name = name;}
+void Enemy::setHP(int hp) {this->hp = hp;}
+void Enemy::setType(string type) {this->type = type;}
+void Enemy::setAttack(int attack) {this->attack = attack;}
+void Enemy::setGender(string gender) {this->gender = gender;}
+void Enemy::setDefense(int defense) {this->defense = defense;}
+void Enemy::setLevel(int level) {this->level = level;}
+
+void Enemy::printEnemyInfo() const {
+   cout << "Name: " << name << endl;
+   cout << "Type: " << type << endl;
+   cout << "Level: " << level << endl;
+   cout << "Gender: " << gender << endl;
    cout << "Attack: " << attack << endl;
-   cout << "Defence: " << defence << endl;
+   cout << "HP: " << hp << endl;
+   cout << "Defense: " << defense << endl;
 }

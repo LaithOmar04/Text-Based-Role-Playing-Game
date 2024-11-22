@@ -9,6 +9,10 @@
 #include "include/wizard.h"
 #include "include/item.h"
 #include "include/inventory.h"
+#include "include/enemy.h"
+#include "include/finalBoss.h"
+#include "include/miniBoss.h"
+#include "include/randomEnemy.h"
 #include <sstream>
 
 TEST(ItemTests, healthItemConstructor){
@@ -264,6 +268,163 @@ TEST(CharacterTest, PrintInfoWiz) {
         "Attack: 15\n"
         "HP: 110\n"
         "Defense: 10\n";
+
+    EXPECT_EQ(output.str(), expectedOutput);
+}
+
+
+TEST(EnemyTests, RandomEnemyInitial){
+    Enemy* e1 = new RandomEnemy;
+    EXPECT_EQ (e1->getType(),"Random Enemy");
+    EXPECT_GE(e1->getDefense(), 6);
+    EXPECT_LE(e1->getDefense(), 10);
+    EXPECT_GE(e1->getAttack(), 11);
+    EXPECT_LE(e1->getAttack(), 15);
+    EXPECT_GE(e1->getHP(), 91);
+    EXPECT_LE(e1->getHP(), 100);
+}
+
+TEST(EnemyTests, MiniBossInitial){
+    Enemy* e1 = new MiniBoss;
+    EXPECT_EQ (e1->getType(),"Mini Boss");
+    EXPECT_GE(e1->getDefense(), 21);
+    EXPECT_LE(e1->getDefense(), 30);
+    EXPECT_GE(e1->getAttack(), 29);
+    EXPECT_LE(e1->getAttack(), 35);
+    EXPECT_GE(e1->getHP(), 291);
+    EXPECT_LE(e1->getHP(), 300);
+}
+
+TEST(EnemyTests, FinalBossInitial){
+    Enemy* e1 = new FinalBoss;
+    EXPECT_EQ (e1->getType(),"Final Boss");
+    EXPECT_EQ(e1->getHP(), 600);
+    EXPECT_EQ(e1->getAttack(), 50);
+    EXPECT_EQ(e1->getDefense(), 40);
+}
+
+TEST(EnemyTests, RandomEnemySetters){
+    Enemy* e1 = new RandomEnemy;
+    e1->setAttack(20);
+    EXPECT_EQ(e1->getAttack(), 20);
+    e1->setDefense(17);
+    EXPECT_EQ(e1->getDefense(), 17);
+    e1->setName("foe");
+    EXPECT_EQ(e1->getName(), "foe");
+    e1->setHP(70);
+    EXPECT_EQ(e1->getHP(), 70);
+}
+
+TEST(EnemyTests, MiniBossSetters){
+    Enemy* e1 = new MiniBoss;
+    e1->setAttack(20);
+    EXPECT_EQ(e1->getAttack(), 20);
+    e1->setDefense(17);
+    EXPECT_EQ(e1->getDefense(), 17);
+    e1->setName("foe");
+    EXPECT_EQ(e1->getName(), "foe");
+    e1->setHP(70);
+    EXPECT_EQ(e1->getHP(), 70);
+}
+
+TEST(EnemyTests, FinalBossSetters){
+    Enemy* e1 = new FinalBoss;
+    e1->setAttack(20);
+    EXPECT_EQ(e1->getAttack(), 20);
+    e1->setDefense(17);
+    EXPECT_EQ(e1->getDefense(), 17);
+    e1->setName("foe");
+    EXPECT_EQ(e1->getName(), "foe");
+    e1->setHP(70);
+    EXPECT_EQ(e1->getHP(), 70);
+}
+
+TEST(EnemyTests, printInfoRandEnemy){
+    Enemy *e1 = new RandomEnemy;
+    e1->setGender("male");
+    e1->setName("nikhil");
+    e1->setAttack(15);
+    e1->setDefense(15);
+    e1->setHP(20);
+     // Capture output
+    std::ostringstream output;
+    std::streambuf* oldCoutBuf = std::cout.rdbuf(output.rdbuf());
+
+    // Call the function
+    e1->printEnemyInfo();
+
+    // Restore the original std::cout buffer
+    std::cout.rdbuf(oldCoutBuf);
+
+    // Check output
+    std::string expectedOutput =
+        "Name: nikhil\n"
+        "Type: Random Enemy\n"
+        "Level: 1\n"
+        "Gender: male\n"
+        "Attack: 15\n"
+        "HP: 20\n"
+        "Defense: 15\n";
+
+    EXPECT_EQ(output.str(), expectedOutput);
+}
+
+TEST(EnemyTests, printInfoMiniBoss){
+    Enemy *e1 = new MiniBoss;
+    e1->setGender("male");
+    e1->setName("nikhil");
+    e1->setAttack(15);
+    e1->setDefense(15);
+    e1->setHP(20);
+     // Capture output
+    std::ostringstream output;
+    std::streambuf* oldCoutBuf = std::cout.rdbuf(output.rdbuf());
+
+    // Call the function
+    e1->printEnemyInfo();
+
+    // Restore the original std::cout buffer
+    std::cout.rdbuf(oldCoutBuf);
+
+    // Check output
+    std::string expectedOutput =
+        "Name: nikhil\n"
+        "Type: Mini Boss\n"
+        "Level: 1\n"
+        "Gender: male\n"
+        "Attack: 15\n"
+        "HP: 20\n"
+        "Defense: 15\n";
+
+    EXPECT_EQ(output.str(), expectedOutput);
+}
+
+TEST(EnemyTests, printInfoFinalBoss){
+    Enemy *e1 = new FinalBoss;
+    e1->setGender("male");
+    e1->setName("nikhil");
+    e1->setAttack(15);
+    e1->setDefense(15);
+    e1->setHP(20);
+     // Capture output
+    std::ostringstream output;
+    std::streambuf* oldCoutBuf = std::cout.rdbuf(output.rdbuf());
+
+    // Call the function
+    e1->printEnemyInfo();
+
+    // Restore the original std::cout buffer
+    std::cout.rdbuf(oldCoutBuf);
+
+    // Check output
+    std::string expectedOutput =
+        "Name: nikhil\n"
+        "Type: Final Boss\n"
+        "Level: 100\n"
+        "Gender: male\n"
+        "Attack: 15\n"
+        "HP: 20\n"
+        "Defense: 15\n";
 
     EXPECT_EQ(output.str(), expectedOutput);
 }

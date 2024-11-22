@@ -19,7 +19,11 @@ src/item.cpp
 src/attackItem.cpp
 src/defenseItem.cpp
 src/healthItem.cpp
-src/inventory.cpp )
+src/inventory.cpp
+src/enemy.cpp
+src/finalBoss.cpp
+src/miniBoss.cpp
+src/randomEnemy.cpp )
 
 # Test executable
 ADD_EXECUTABLE(UnitTests 
@@ -33,7 +37,11 @@ src/item.cpp
 src/attackItem.cpp
 src/defenseItem.cpp
 src/healthItem.cpp
-src/inventory.cpp )
+src/inventory.cpp
+src/enemy.cpp
+src/finalBoss.cpp
+src/miniBoss.cpp
+src/randomEnemy.cpp )
 
 # Link Google Test libraries to the UnitTests executable
 target_link_libraries(UnitTests gtest gtest_main)
