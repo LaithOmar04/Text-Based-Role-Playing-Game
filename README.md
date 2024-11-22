@@ -149,28 +149,14 @@ Story screen:
 
 ## Class Diagram
 
-https://drive.google.com/file/d/1aysvTaWajvOlio9Uh1EDi-s6d8EbrmNm/view?usp=sharing
- 
- > ## Phase III
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
- 
- > BEFORE the meeting you should do the following:
- > * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
- > * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
- >   * A new class diagram incorporating your changes after considering the SOLID principles.
- >   * For each update in your class diagram, you must explain in 3-4 sentences:
- >     * What SOLID principle(s) did you apply?
- >     * How did you apply it? i.e. describe the change.
- >     * How did this change help you write better code?
- > * Perform a new sprint plan like you did in Phase II.
- > * Make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
->  * Each team member should also submit the Individual Contributions Form on Canvas for phase III. In this form, you need to fill in the names of all team members, the percentage of work contributed by each member for phase III, and a description of their contributions. Remember that each team member should submit the form individually.
- 
-> During the meeting with your reader you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
+https://drive.google.com/file/d/1F8gcfY2iRCcLNyM2YDIOob284LoZmaxK/view?usp=sharing
+
+## UML Diagram Updates
+
+1) We decided to add derived classes for the Character and Enemy classes to adhere to the Open Closed Principle, since we have 4 types of characters and 3 types of enemies. Originally, we had the Character class initialize each type of character by just changing their attribute values, but we realized that we would have to change and add more functions if we wanted to add another character type later on. The same goes for the enemy class, where if we wanted to add more enemies later on, it would be easier to extend the enemy class rather than change/add functions within the enemy class. This helped us write better code because we can easily extend these classes if needed, and it is much more readable/understandable to instantiate our characters and enemies through subclasses.
+2) We also added derived classes for the Item class to adhere to the Open Closed Principle. Since we currently have 3 different types of items (health, attack, and defense), we wanted to separate them instead of initializing them through the Item base class directly. We want the Item class to be closed for modification but open for extension, so it will be much easier to add more item types later on. This helped us write better code since we can easily extend the item class if needed, and it is much more readable and understandable to instantiate our items through subclasses.
+3) Finally, we added a Reward System class to manage how players acquire items during the game. Originally, we were going to display the available items in our Game class or Battle System class, but we realized that this violated the Single Responsibility Principle. By creating a Reward System class, we can adhere to SRP by making a class for the purpose of managing and displaying the acquisition of items for a player, rather than putting this functionality in the Game class directly. We are able to write better code now because we can separate the responsibilites of different classes to avoid clutter.
+
 
  
  > ## Final deliverable
