@@ -55,3 +55,8 @@ void Character::printCharacterInfo() const {
     cout << "HP: " << hp << endl;
     cout << "Defense: " << defense << endl;
 }
+
+int Character::getInventorySize() {
+   return inventory.getSize();
+}
+
