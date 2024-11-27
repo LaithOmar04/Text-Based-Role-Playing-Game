@@ -14,6 +14,8 @@
 #include "include/finalBoss.h"
 #include "include/miniBoss.h"
 #include "include/randomEnemy.h"
+#include "include/battleSystem.h"
+#include "include/battleSystem.h"
 #include <sstream>
 
 TEST(ItemTests, healthItemConstructor){
@@ -470,3 +472,164 @@ TEST(EnemyTests, printInfoFinalBoss){
 
     EXPECT_EQ(output.str(), expectedOutput);
 }
+battleSystem battle;
+
+TEST(BattleSystemTest, PlayerWins) {
+   Character* player = new Wizard();
+   player->setHP(100);
+   player->setAttack(50);
+
+
+   Enemy* enemy = new RandomEnemy();
+   enemy->setHP(50);
+   enemy->setAttack(20);
+
+
+   battle.startBattle(player, enemy, 1);
+
+
+   EXPECT_GT(player->getHP(), 0); // Player survives
+   EXPECT_LE(enemy->getHP(), 0); // Enemy defeated
+
+
+   delete player;
+   delete enemy;
+}
+
+
+TEST(BattleSystemTest, PlayerDefeated) {
+   Character* player = new Wizard();
+   player->setHP(30);
+   player->setAttack(30);
+
+
+   Enemy* enemy = new RandomEnemy();
+   enemy->setHP(100);
+   enemy->setAttack(50);
+
+
+   battle.startBattle(player, enemy, 1);
+
+
+   EXPECT_LE(player->getHP(), 0); // Player defeated
+   EXPECT_GT(enemy->getHP(), 0); // Enemy survives
+
+
+   delete player;
+   delete enemy;
+}
+
+
+TEST(BattleSystemTest, PlayerRunsSuccessfully) {
+   Character* player = new Wizard();
+   player->setHP(100);
+   player->setAttack(30);
+
+
+   Enemy* enemy = new RandomEnemy();
+   enemy->setHP(100);
+   enemy->setAttack(30);
+
+
+   battle.startBattle(player, enemy, 0);
+
+
+   EXPECT_EQ(player->getHP(), 100); // Player takes no damage
+   EXPECT_EQ(enemy->getHP(), 100); // Enemy is unharmed
+
+
+   delete player;
+   delete enemy;
+}
+
+
+
+
+TEST(BattleSystemTest, PlayerFailsToRun) {
+
+   Character* player = new Wizard();
+   player->setHP(100);
+   player->setAttack(30);
+
+
+   Enemy* enemy = new RandomEnemy();
+   enemy->setHP(100);
+   enemy->setAttack(20);
+
+
+   battle.startBattle(player, enemy, 1);
+
+
+   EXPECT_LT(player->getHP(), 100); // Player takes damage
+   EXPECT_EQ(enemy->getHP(), 100); // Enemy is unharmed
+
+
+   delete player;
+   delete enemy;
+}
+
+TEST(BattleSystemTest, PlayerUsesItem) {
+   Character* player = new Wizard();
+   player->setHP(50);
+   Item* item = new healthItem("Health Potion");
+   player->addItem(item); // Add health item to inventory
+   player->useItem(0);
+
+   EXPECT_GT(player->getHP(), 50); // Player uses the item and regains HP
+   EXPECT_EQ(player->getInventorySize(), 0); // Inventory is empty after item use
+
+   delete player;
+   delete item;
+}
+
+// test input 3 -2 3 -1 2
+TEST(BattleSystemTest, InvalidInventoryChoiceOrCancel) {
+   Character* player = new Wizard();
+   player->setHP(100);
+   player->addItem(new healthItem("Health Potion"));
+
+
+   Enemy* enemy = new RandomEnemy();
+   enemy->setHP(100);
+   enemy->setAttack(20);
+
+
+   battle.startBattle(player, enemy, 0);
+
+
+   EXPECT_EQ(player->getHP(), 100); // No HP change for invalid item usage
+   EXPECT_EQ(player->getInventorySize(), 1); // Item still present in inventory
+
+
+   delete player;
+   delete enemy;
+}
+
+
+// Test case: Enemy defeated by a player with critical damage
+TEST(BattleSystemTest, PlayerCriticalDamage) {
+   Character* player = new Wizard();
+   player->setHP(100);
+   player->setAttack(150); // High attack power
+
+
+   Enemy* enemy = new RandomEnemy();
+   enemy->setHP(100);
+   enemy->setAttack(20);
+
+
+   battle.startBattle(player, enemy, 1);
+
+
+   EXPECT_GT(player->getHP(), 0); // Player survives
+   EXPECT_LE(enemy->getHP(), 0); // Enemy is defeated in one hit
+
+
+   delete player;
+   delete enemy;
+}
+
+
+
+
+

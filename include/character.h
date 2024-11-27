@@ -32,6 +32,7 @@ public:
     int getAttack() const;
     int getHP() const;
     int getDefense() const;
+    int getInventorySize();
 
    
     void setLevel(int level);
@@ -45,6 +46,7 @@ public:
     void addItem(Item* i);
     void useItem(int i);
     void displayInventory();
+    
 
     virtual void initialize() = 0;
 
