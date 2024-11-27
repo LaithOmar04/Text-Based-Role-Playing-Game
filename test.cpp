@@ -15,6 +15,7 @@
 #include "include/miniBoss.h"
 #include "include/randomEnemy.h"
 #include "include/battleSystem.h"
+#include "include/battleSystem.h"
 #include <sstream>
 
 TEST(ItemTests, healthItemConstructor){
@@ -471,7 +472,6 @@ TEST(EnemyTests, printInfoFinalBoss){
 
     EXPECT_EQ(output.str(), expectedOutput);
 }
-
 battleSystem battle;
 
 TEST(BattleSystemTest, PlayerWins) {
