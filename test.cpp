@@ -547,7 +547,6 @@ TEST(BattleSystemTest, PlayerRunsSuccessfully) {
 
 TEST(BattleSystemTest, PlayerFailsToRun) {
 
-
    Character* player = new Wizard();
    player->setHP(100);
    player->setAttack(30);
@@ -569,31 +568,22 @@ TEST(BattleSystemTest, PlayerFailsToRun) {
    delete enemy;
 }
 
-/*
 TEST(BattleSystemTest, PlayerUsesItem) {
    Character* player = new Wizard();
    player->setHP(50);
    Item* item = new healthItem("Health Potion");
    player->addItem(item); // Add health item to inventory
-
-   Enemy* enemy = new RandomEnemy();
-   enemy->setHP(100);
-   enemy->setAttack(20);
-
-   battle.startBattle(player, enemy, 0);
-
+   player->useItem(0);
 
    EXPECT_GT(player->getHP(), 50); // Player uses the item and regains HP
    EXPECT_EQ(player->getInventorySize(), 0); // Inventory is empty after item use
 
-
    delete player;
-   delete enemy;
    delete item;
 }
 
-
-TEST(BattleSystemTest, InvalidInventoryChoice) {
+// test input 3 -2 3 -1 2
+TEST(BattleSystemTest, InvalidInventoryChoiceOrCancel) {
    Character* player = new Wizard();
    player->setHP(100);
    player->addItem(new healthItem("Health Potion"));
@@ -604,12 +594,7 @@ TEST(BattleSystemTest, InvalidInventoryChoice) {
    enemy->setAttack(20);
 
 
-   // Simulate invalid input by trying to use an out-of-bounds index
-   //std::istringstream input("3\n-1\n1\n");
-   //std::cin.rdbuf(input.rdbuf()); // Redirect std::cin for the test
-
-
-   battle.startBattle(player, enemy, 1);
+   battle.startBattle(player, enemy, 0);
 
 
    EXPECT_EQ(player->getHP(), 100); // No HP change for invalid item usage
@@ -643,7 +628,7 @@ TEST(BattleSystemTest, PlayerCriticalDamage) {
    delete player;
    delete enemy;
 }
-*/
+
 
 
 

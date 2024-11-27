@@ -73,8 +73,8 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
                }                 
 
 
-               if (itemIndex >= 0 && itemIndex < player->getInventorySize()) {
-                   player->useItem(itemIndex); // Use the selected item
+               if (itemIndex > 0 && itemIndex <= player->getInventorySize()) {
+                   player->useItem(itemIndex - 1); // Use the selected item
                } else {
                    cout << "Invalid item choice. Please try again." << endl;
                }
