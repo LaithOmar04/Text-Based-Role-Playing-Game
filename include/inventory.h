@@ -13,6 +13,7 @@ class Inventory {
     vector<Item*> inventory;
 
     public:
+    ~Inventory();
     void addItem(Item* item);
     void useItem(Character* player, int index);
     Item* getItem(int index);

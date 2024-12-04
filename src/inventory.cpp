@@ -3,6 +3,12 @@
 #include "../include/item.h"
 #include <iostream>
 
+Inventory::~Inventory(){
+    for (int i=0; i < inventory.size(); ++i){
+        delete inventory[i];
+    }
+}
+
 void Inventory::addItem(Item* item) {
     this->inventory.push_back(item);
 }
