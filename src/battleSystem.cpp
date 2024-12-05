@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include "../include/battleSystem.h"
 #include "../include/rewardSystem.h"
+#include <limits>
 using namespace std;
 
 
@@ -66,6 +67,12 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
                cout << "Enter the number of the item you want to use (or -1 to cancel): ";
                int itemIndex;
                cin >> itemIndex;
+               while (!cin.good()){
+                cout << "Enter a valid item index" << endl;
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cin >> itemIndex;
+               }
 
 
                if (itemIndex == -1) {
@@ -103,7 +110,7 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
             player->setHP(100);
        }
        RewardSystem reward;
-        char choice;
+       int choice;
        reward.displayRewards();
        cin >> choice;
        reward.rewardItem(player,choice);
