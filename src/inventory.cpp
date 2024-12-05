@@ -21,6 +21,8 @@ void Inventory::useItem(Character* player, int index) {
 void Inventory::displayItems() {
     if(this->inventory.size() == 0) {
         cout << "Inventory is empty!" << endl;
+
+        return;
     }
 
     for(int i = 0; i < this->inventory.size(); ++i) {

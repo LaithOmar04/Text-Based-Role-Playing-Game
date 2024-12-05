@@ -12,4 +12,5 @@ void Dragon::initialize() {
     hp = 100; 
     level = 1;
     xp = 0;
+    maxHp = 100;
 }

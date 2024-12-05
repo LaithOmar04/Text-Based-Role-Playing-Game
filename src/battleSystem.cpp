@@ -34,8 +34,12 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
 
 
                if (enemy->getHP() > 0) {
-                   player->setHP(player->getHP() - enemyDamage);
-                   cout << "The enemy dealt " << enemyDamage << " damage to you." << endl;
+                   if(player->getDefense() >= enemyDamage) {
+                        cout << "You're defense is very strong! You took no damage!" << endl;
+                        break;
+                   }
+                   player->setHP(player->getHP() - (enemyDamage - player->getDefense()));
+                   cout << "The enemy dealt " << (enemyDamage - player->getDefense()) << " damage to you." << endl;
                } else {
                    cout << "You defeated the enemy!" << endl;
                }
@@ -52,7 +56,6 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
                    int enemyDamage = enemy->getAttack();
                    player->setHP(player->getHP() - enemyDamage);
                    cout << "The enemy dealt " << enemyDamage << " damage to you." << endl;
-                   return;
                }
                break;
            }
@@ -102,16 +105,19 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
        cout << "Victory! The enemy has been defeated." << endl;
        player->setXP(player->getXP() + 50);
        if(player->getXP() >= 100){
-        cout << "It seems your hard work is paying off you are ready to level up!" << endl;
+        cout << "It seems your hard work is paying off. You are ready to level up!" << endl;
             player->levelUp();
             cout << "Your new level is now " << player->getLevel() << "!" << endl;
        }
-       if(player->getHP() < 100) {
-            player->setHP(100);
+       if(!player->atFullHealth()) {
+            player->rejuvinate();
+            cout << "Your health has been rejuvinated!" << endl;
        }
+
+       cout << "Which reward would you like to recieve for your victory?" << endl;
        RewardSystem reward;
-       int choice;
        reward.displayRewards();
+       int choice;
        cin >> choice;
        reward.rewardItem(player,choice);
        

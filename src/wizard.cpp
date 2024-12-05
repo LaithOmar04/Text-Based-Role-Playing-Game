@@ -12,4 +12,5 @@ void Wizard::initialize() {
     hp = 110;     // Base 100 + 10 for Wizard
     level = 1;
     xp = 0;
+    maxHp = 110;
 }

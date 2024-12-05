@@ -17,6 +17,7 @@ protected:
     int xp;
     int attack;
     int hp;
+    int maxHp;
     int defense;
     Inventory inventory;
 
@@ -33,6 +34,7 @@ public:
     int getHP() const;
     int getDefense() const;
     int getInventorySize();
+    bool atFullHealth();
 
    
     void setLevel(int level);
@@ -47,6 +49,7 @@ public:
     void useItem(int i);
     void displayInventory();
     void levelUp();
+    void rejuvinate();
     
 
     virtual void initialize() = 0;
