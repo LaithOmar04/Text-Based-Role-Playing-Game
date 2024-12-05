@@ -628,6 +628,77 @@ TEST(BattleSystemTest, PlayerCriticalDamage) {
    delete player;
    delete enemy;
 }
+//Test case: gain xp and level up
+TEST(BattleSystemTest, levelUp){
+    Character* player = new Wizard();
+   player->setHP(100);
+   player->setAttack(50);
+
+
+   Enemy* enemy = new RandomEnemy();
+   enemy->setHP(50);
+   enemy->setAttack(20);
+
+
+   battle.startBattle(player, enemy, 1);
+   battle.startBattle(player, enemy, 1);
+
+
+   EXPECT_EQ(2, player->getLevel());
+
+
+   delete player;
+   delete enemy;
+
+}
+TEST(BattleSystemTest, CorrectXp){
+    Character* player = new Wizard();
+   player->setHP(100);
+   player->setAttack(50);
+
+
+   Enemy* enemy = new RandomEnemy();
+   enemy->setHP(50);
+   enemy->setAttack(20);
+
+
+   battle.startBattle(player, enemy, 1);
+   battle.startBattle(player, enemy, 1);
+   battle.startBattle(player, enemy, 1);
+
+
+   EXPECT_EQ(2, player->getLevel());
+   EXPECT_EQ(50, player->getXP());
+
+
+   delete player;
+   delete enemy;
+
+}
+TEST(BattleSystemTest, LevelUpStats){
+    Character* player = new Wizard();
+   player->setHP(100);
+   player->setAttack(50);
+
+
+   Enemy* enemy = new RandomEnemy();
+   enemy->setHP(50);
+   enemy->setAttack(20);
+
+
+   battle.startBattle(player, enemy, 1);
+   battle.startBattle(player, enemy, 1);
+   battle.startBattle(player, enemy, 1);
+
+
+   EXPECT_EQ(120, player->getHP());
+   EXPECT_EQ(70, player->getAttack());
+
+
+   delete player;
+   delete enemy;
+
+}
 
 //Test case: gain xp and level up
 TEST(BattleSystemTest, levelUp){
