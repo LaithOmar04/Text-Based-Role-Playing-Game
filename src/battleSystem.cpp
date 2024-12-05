@@ -2,6 +2,7 @@
 #include <string>
 #include <cstdlib>
 #include "../include/battleSystem.h"
+#include "../include/rewardSystem.h"
 using namespace std;
 
 
@@ -101,5 +102,11 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
        if(player->getHP() < 100) {
             player->setHP(100);
        }
+       char choice;
+       RewardSystem reward;
+       reward.displayRewards();
+       cin >> choice;
+       reward.rewardItem(player,choice);
+       
    }
 }
