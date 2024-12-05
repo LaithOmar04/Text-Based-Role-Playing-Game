@@ -96,5 +96,8 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
        if(player->getXP() >= 100){
             player->levelUp();
        }
+       if(player->getHP() < 100) {
+            player->setHP(100);
+       }
    }
 }
