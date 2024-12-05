@@ -10,11 +10,12 @@
 #include "include/item.h"
 #include "include/inventory.h"
 #include "include/rewardSystem.h"
+#include "include/game.h"
 
 using namespace std;
 
 int main() {
-
-
+    Game game;
+    game.startGame("easy");
     return 0;
 }
