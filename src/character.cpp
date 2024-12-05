@@ -42,6 +42,12 @@ void Character::useItem(int i){
 void Character::displayInventory(){
     inventory.displayItems();
 }
+void Character::levelUp(){
+    level += 1;
+    xp = xp - 100;
+    attack += 20;
+    hp += 20;
+}
 
 // Print character info
 void Character::printCharacterInfo() const {

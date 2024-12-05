@@ -92,5 +92,9 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
        cout << "You have been defeated..." << endl;
    } else if (enemy->getHP() <= 0) {
        cout << "Victory! The enemy has been defeated." << endl;
+       player->setXP(player->getXP() + 50);
+       if(player->getXP() >= 100){
+            player->levelUp();
+       }
    }
 }

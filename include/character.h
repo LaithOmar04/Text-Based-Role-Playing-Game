@@ -46,6 +46,7 @@ public:
     void addItem(Item* i);
     void useItem(int i);
     void displayInventory();
+    void levelUp();
     
 
     virtual void initialize() = 0;
