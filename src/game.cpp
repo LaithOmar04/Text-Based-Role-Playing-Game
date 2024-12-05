@@ -59,14 +59,17 @@ void Game::startGame() {
             FinalBoss* bigBoss = new FinalBoss(); 
             battleSystem.startBattle(player, bigBoss, runChance);
 
-            if (player->getHP() > 0) {
+            if (bigBoss->getHP() <= 0) {
                 cout << "Congratulations! You defeated the Big Boss and completed the game!" << endl;
+                delete bigBoss;
+                break; // End the game after the final boss
+            } else if (player->getHP() > 0){
+                continue;
             } else {
                 cout << "The Big Boss has defeated you." << endl << "Game Over." << endl;
+                delete bigBoss;
+                break; // End the game after the final boss
             }
-
-            delete bigBoss;
-            break; // End the game after the final boss
         }
         cout << "You move forward on your journey..." << endl;
     

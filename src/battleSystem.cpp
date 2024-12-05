@@ -98,28 +98,29 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
        }
    }
 
+    if (enemy->getType() != "Final Boss"){
+        if (player->getHP() <= 0) {
+            cout << "You have been defeated..." << endl;
+        } else if (enemy->getHP() <= 0) {
+            cout << "Victory! The enemy has been defeated." << endl;
+            player->setXP(player->getXP() + 50);
+            if(player->getXP() >= 100){
+                cout << "It seems your hard work is paying off. You are ready to level up!" << endl;
+                    player->levelUp();
+                    cout << "Your new level is now " << player->getLevel() << "!" << endl;
+            }
+            if(!player->atFullHealth()) {
+                    player->rejuvinate();
+                    cout << "Your health has been rejuvinated!" << endl;
+            }
 
-   if (player->getHP() <= 0) {
-       cout << "You have been defeated..." << endl;
-   } else if (enemy->getHP() <= 0) {
-       cout << "Victory! The enemy has been defeated." << endl;
-       player->setXP(player->getXP() + 50);
-       if(player->getXP() >= 100){
-        cout << "It seems your hard work is paying off. You are ready to level up!" << endl;
-            player->levelUp();
-            cout << "Your new level is now " << player->getLevel() << "!" << endl;
-       }
-       if(!player->atFullHealth()) {
-            player->rejuvinate();
-            cout << "Your health has been rejuvinated!" << endl;
-       }
-
-       cout << "Which reward would you like to recieve for your victory?" << endl;
-       RewardSystem reward;
-       reward.displayRewards();
-       int choice;
-       cin >> choice;
-       reward.rewardItem(player,choice);
-       
+            cout << "Which reward would you like to recieve for your victory?" << endl;
+            RewardSystem reward;
+            reward.displayRewards();
+            int choice;
+            cin >> choice;
+            reward.rewardItem(player,choice);
+            
+        }
    }
 }
