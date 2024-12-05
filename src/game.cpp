@@ -9,7 +9,7 @@
 #include "../include/finalBoss.h"
 
 
-void Game::startGame(string difficulty) {
+void Game::startGame() {
     this->difficulty = difficulty; // FIXME: Implement difficulty
     cout << "Welcome to the game! The difficulty is set to " << difficulty << "." << endl;
 

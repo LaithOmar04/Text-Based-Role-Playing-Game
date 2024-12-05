@@ -9,7 +9,7 @@ using namespace std;
 
 class Game {
    public:
-       void startGame(string difficulty);
+       void startGame();
        Character* createCharacter(string& name, string& gender, int age, string& species);
    private:
        string difficulty;
