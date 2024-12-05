@@ -693,8 +693,7 @@ TEST(BattleSystemTest, CorrectXp){
 }
 TEST(BattleSystemTest, LevelUpStats){
     Character* player = new Wizard();
-   player->setHP(100);
-   player->setAttack(50);
+  
 
 
    Enemy* enemy = new RandomEnemy();
@@ -707,8 +706,8 @@ TEST(BattleSystemTest, LevelUpStats){
    battle.startBattle(player, enemy, 1);
 
 
-   EXPECT_EQ(120, player->getHP());
-   EXPECT_EQ(70, player->getAttack());
+   EXPECT_EQ(130, player->getHP());
+   EXPECT_EQ(35, player->getAttack());
 
 
    delete player;
