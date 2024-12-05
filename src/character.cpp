@@ -52,7 +52,7 @@ void Character::levelUp(){
     level += 1;
     xp = xp - 100;
     attack += 20;
-    hp += 20;
+    maxHp += 20;
 }
 
 void Character::rejuvinate() {
