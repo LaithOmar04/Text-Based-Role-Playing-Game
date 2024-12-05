@@ -102,8 +102,8 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
        if(player->getHP() < 100) {
             player->setHP(100);
        }
-       char choice;
        RewardSystem reward;
+        char choice;
        reward.displayRewards();
        cin >> choice;
        reward.rewardItem(player,choice);
