@@ -7,6 +7,7 @@
 #include "../include/randomEnemy.h"
 #include "../include/miniBoss.h"
 #include "../include/finalBoss.h"
+#include <limits>
 
 
 void Game::startGame() {
@@ -22,12 +23,26 @@ void Game::startGame() {
 
     cout << endl << "Enter your character's gender: ";
     cin >> gender;
+    while(gender != "Male" && gender != "Female"){
+        cout << "Enter a valid gender (Male or Female)" << endl;
+        cin >> gender;
+    }
 
     cout << endl << "Enter your character's age: ";
     cin >> age;
+    while(!cin.good()){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Enter a valid age" << endl;
+        cin >> age;
+    }
 
-    cout << endl << "Enter your character's species: ";
+    cout << endl << "Enter your character's species (Demon, Dragon, Wizard, or Angel): ";
     cin >> species;
+    while(species != "Demon" && species != "Dragon" && species != "Wizard" && species != "Angel"){
+        cout << "Enter a valid species (Demon, Dragon, Wizard, Angel)" << endl;
+        cin >> species;
+    }
 
     Character* player = createCharacter(name, gender, age, species);
     cout << endl << "Character created! Welcome, " << player->getName() << "." << endl;
@@ -59,9 +74,15 @@ void Game::startGame() {
         cout << "Do you want to: " << endl;
         cout << "1. Fight random enemies to gain experience." << endl;
         cout << "2. Challenge a Mini-Boss for greater rewards. " << endl;
-        cout << "Enter your choice (1 or 2): ";
+        cout << "3. Display your stats. " << endl;
+        cout << "Enter your choice (1, 2, or 3): ";
         int choice;
         cin >> choice;
+        while (!cin.good()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Enter a valid choice (1, 2, or 3)" << endl;
+        }
         cout << endl;
 
         if (choice == 1) {
@@ -75,6 +96,9 @@ void Game::startGame() {
             battleSystem.startBattle(player, miniBoss, runChance); // No escape for mini-boss fights
             delete miniBoss;
             miniCount++;
+        } 
+          else if (choice == 3) {
+            player->printCharacterInfo();
         } else {
             cout << "Invalid choice. You hesitate and lose time." << endl;
             continue; // Skip this loop iteration
