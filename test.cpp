@@ -107,6 +107,22 @@ TEST(CharacterTest, gender) {
     dragon->setGender("male");
     EXPECT_EQ (dragon->getGender(),"male");
 }
+TEST(CharacterTest, fullHealth) {
+    Character *dragon = new Dragon;
+    dragon->setHP(100);
+    EXPECT_TRUE(dragon->atFullHealth());
+}
+TEST(CharacterTest, notFullHealth) {
+    Character *dragon = new Dragon;
+    dragon->setHP(50);
+    EXPECT_FALSE(dragon->atFullHealth());
+}
+TEST(CharacterTest, rejuvinate) {
+    Character *dragon = new Dragon;
+    dragon->setHP(50);
+    dragon->rejuvinate();
+    EXPECT_TRUE(dragon->getHP() == 100);
+}
 
 // ==================================================
 
