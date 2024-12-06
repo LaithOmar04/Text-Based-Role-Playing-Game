@@ -12,7 +12,7 @@
 
 void Game::startGame() {
     this->difficulty = difficulty; // FIXME: Implement difficulty
-    cout << "Welcome to the game! The difficulty is set to " << difficulty << "." << endl;
+    cout << "Welcome to the game!" << endl;
 
     // Character Creation
     string name, gender, species;
