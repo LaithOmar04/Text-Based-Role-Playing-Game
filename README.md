@@ -146,7 +146,7 @@ Story screen:
 
 ## Class Diagram
 
-https://drive.google.com/file/d/1F8gcfY2iRCcLNyM2YDIOob284LoZmaxK/view?usp=sharing
+https://drive.google.com/file/d/1j73y57attEoYU9flNmkEU-CSAtRRcJcn/view?usp=sharing
 
 ## UML Diagram Updates
 
