@@ -168,7 +168,9 @@ https://drive.google.com/file/d/1j73y57attEoYU9flNmkEU-CSAtRRcJcn/view?usp=shari
  > Screenshots of the input/output after running your application
  ## Installation/Usage
 cmake .
+
 make
+
 ./MainExecutable
  ## Testing
 We used unit testing to test and validate our project. We made sure to test every function within each class to ensure proper functionality, providing necessary in-game inputs to validate each function. We also ran our game through a large number of different scenarios to ensure that the different aspects and features of the game were correctly implemented.
