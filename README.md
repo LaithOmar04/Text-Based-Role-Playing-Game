@@ -165,7 +165,9 @@ https://drive.google.com/file/d/1j73y57attEoYU9flNmkEU-CSAtRRcJcn/view?usp=shari
 >  * Each team member should also submit the Individual Contributions Form on Canvas for this final phase. In this form, you need to fill in the names of all team members, the percentage of work contributed by each member for the final phase, and a description of their contributions. Remember that each team member should submit the form individually.
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+
+https://docs.google.com/presentation/d/1WfJk7kAs1mz_K0LcIzxwHyjGCYIGc3uqWbOoCnWLuB0/edit?usp=sharing
+
  ## Installation/Usage
 cmake .
 
