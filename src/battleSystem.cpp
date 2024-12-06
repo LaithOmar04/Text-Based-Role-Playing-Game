@@ -56,6 +56,7 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
                    int enemyDamage = enemy->getAttack();
                    player->setHP(player->getHP() - enemyDamage);
                    cout << "The enemy dealt " << enemyDamage << " damage to you." << endl;
+                   escapeChance = rand() % 2;
                }
                break;
            }
@@ -96,7 +97,6 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
            default:
                cout << "Invalid choice. Please try again." << endl;
        }
-       escapeChance = rand() % 2;
    }
 
     if (enemy->getType() != "Final Boss"){
