@@ -167,7 +167,9 @@ https://drive.google.com/file/d/1j73y57attEoYU9flNmkEU-CSAtRRcJcn/view?usp=shari
  ## Screenshots
  > Screenshots of the input/output after running your application
  ## Installation/Usage
- > Instructions on installing and running your application
+cmake .
+make
+./MainExecutable
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+We used unit testing to test and validate our project. We made sure to test every function within each class to ensure proper functionality, providing necessary in-game inputs to validate each function. We also ran our game through a large number of different scenarios to ensure that the different aspects and features of the game were correctly implemented.
  
