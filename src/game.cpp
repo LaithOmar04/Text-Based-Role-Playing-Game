@@ -97,8 +97,10 @@ void Game::startGame() {
             cout << "A Mini-Boss appears!" << endl;
             MiniBoss* miniBoss = new MiniBoss();
             battleSystem.startBattle(player, miniBoss, runChance); // No escape for mini-boss fights
+            if (miniBoss->getHP() <= 0){
+                miniCount++;
+            }
             delete miniBoss;
-            miniCount++;
         } 
           else if (choice == 3) {
             player->printCharacterInfo();
