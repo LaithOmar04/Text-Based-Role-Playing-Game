@@ -15,6 +15,7 @@ void Inventory::addItem(Item* item) {
     
 void Inventory::useItem(Character* player, int index) {
     this->inventory[index]->useAbility(player);
+    delete this->inventory[index];
     this->inventory.erase(this->inventory.begin() + index);
 }
     
