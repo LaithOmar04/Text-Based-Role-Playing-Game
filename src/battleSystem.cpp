@@ -96,6 +96,7 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
            default:
                cout << "Invalid choice. Please try again." << endl;
        }
+       escapeChance = rand() % 2;
    }
 
     if (enemy->getType() != "Final Boss"){

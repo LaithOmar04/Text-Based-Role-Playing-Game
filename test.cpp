@@ -595,7 +595,6 @@ TEST(BattleSystemTest, PlayerUsesItem) {
    EXPECT_EQ(player->getInventorySize(), 0); // Inventory is empty after item use
 
    delete player;
-   delete item;
 }
 
 // test input 3 -2 3 -1 2
