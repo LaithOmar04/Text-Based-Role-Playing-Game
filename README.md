@@ -166,7 +166,7 @@ https://drive.google.com/file/d/1j73y57attEoYU9flNmkEU-CSAtRRcJcn/view?usp=shari
  
  ## Screenshots
 
-https://docs.google.com/presentation/d/1WfJk7kAs1mz_K0LcIzxwHyjGCYIGc3uqWbOoCnWLuB0/edit?usp=sharing
+https://drive.google.com/file/d/1a0NIp7luxtPKbIyKr8rKiObQEhs4gGFg/view?usp=sharing
 
  ## Installation/Usage
 cmake .
