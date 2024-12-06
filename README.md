@@ -103,20 +103,13 @@ Battle Options Screen:
 
 > The enemy facing you is waiting for your next move. What will you do? Please choose from the following:
 > 
-> 1. Run   2. Fight   3. Open Inventory
+> 1. Fight   2. Run   3. Open Inventory
 >
-> 1
+> 2
 >
 > You failed to run away!
 
-
-Fight Screen:
-* This screen is shown when the user decides to fight in a battle. A list of possible moves is given for the user to choose.
-> What move would you like to use? 
->
-> 1. Fireball   2. Poison Dagger   3. Melee Attack
->
-> Enter the number for the move you would like to use, or enter 0 to return
+> 1. Fight   2. Run   3. Open Inventory
 >
 > 1
 >
@@ -126,13 +119,13 @@ Inventory screen:
 * This screen is shown when the user decides to open their inventory during their turn in battle.
 > You are currently holding the following items:
 >
-> 1. Heal Potion   2. XP Boost   3. Attack Potion
+> 1. Heal Potion   2. Defense Potion   3. Attack Potion
 >
 > Enter the number for the item you would like to use, or enter 0 to exit your inventory
 > 
 > 3
 >
-> Your attack stat has temporarily gone up by 20!
+> Your attack stat has gone up by 20!
 
 Story screen:
 * This screen is shown during key moments in the progression of the games’ story (e.g the game’s start, defeating a boss, etc.). A message is shown depending on what happens in the story, and the user is prompted to continue. An example is shown:
