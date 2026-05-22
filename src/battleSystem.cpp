@@ -2,6 +2,8 @@
 #include <string>
 #include <cstdlib>
 #include "../include/battleSystem.h"
+#include "../include/rewardSystem.h"
+#include <limits>
 using namespace std;
 
 
@@ -32,8 +34,12 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
 
 
                if (enemy->getHP() > 0) {
-                   player->setHP(player->getHP() - enemyDamage);
-                   cout << "The enemy dealt " << enemyDamage << " damage to you." << endl;
+                   if(player->getDefense() >= enemyDamage) {
+                        cout << "You're defense is very strong! You took no damage!" << endl;
+                        break;
+                   }
+                   player->setHP(player->getHP() - (enemyDamage - player->getDefense()));
+                   cout << "The enemy dealt " << (enemyDamage - player->getDefense()) << " damage to you." << endl;
                } else {
                    cout << "You defeated the enemy!" << endl;
                }
@@ -50,7 +56,7 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
                    int enemyDamage = enemy->getAttack();
                    player->setHP(player->getHP() - enemyDamage);
                    cout << "The enemy dealt " << enemyDamage << " damage to you." << endl;
-                   return;
+                   escapeChance = rand() % 2;
                }
                break;
            }
@@ -65,6 +71,12 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
                cout << "Enter the number of the item you want to use (or -1 to cancel): ";
                int itemIndex;
                cin >> itemIndex;
+               while (!cin.good()){
+                cout << "Enter a valid item index" << endl;
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cin >> itemIndex;
+               }
 
 
                if (itemIndex == -1) {
@@ -87,17 +99,29 @@ void battleSystem::startBattle(Character* player, Enemy* enemy, int escapeChance
        }
    }
 
+    if (enemy->getType() != "Final Boss"){
+        if (player->getHP() <= 0) {
+            cout << "You have been defeated..." << endl;
+        } else if (enemy->getHP() <= 0) {
+            cout << "Victory! The enemy has been defeated." << endl;
+            player->setXP(player->getXP() + 50);
+            if(player->getXP() >= 100){
+                cout << "It seems your hard work is paying off. You are ready to level up!" << endl;
+                    player->levelUp();
+                    cout << "Your new level is now " << player->getLevel() << "!" << endl;
+            }
+            if(!player->atFullHealth()) {
+                    player->rejuvinate();
+                    cout << "Your health has been rejuvinated!" << endl;
+            }
 
-   if (player->getHP() <= 0) {
-       cout << "You have been defeated..." << endl;
-   } else if (enemy->getHP() <= 0) {
-       cout << "Victory! The enemy has been defeated." << endl;
-       player->setXP(player->getXP() + 50);
-       if(player->getXP() >= 100){
-            player->levelUp();
-       }
-       if(player->getHP() < 100) {
-            player->setHP(100);
-       }
+            cout << "Which reward would you like to recieve for your victory?" << endl;
+            RewardSystem reward;
+            reward.displayRewards();
+            int choice;
+            cin >> choice;
+            reward.rewardItem(player,choice);
+            
+        }
    }
 }

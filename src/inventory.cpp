@@ -15,12 +15,15 @@ void Inventory::addItem(Item* item) {
     
 void Inventory::useItem(Character* player, int index) {
     this->inventory[index]->useAbility(player);
+    delete this->inventory[index];
     this->inventory.erase(this->inventory.begin() + index);
 }
     
 void Inventory::displayItems() {
     if(this->inventory.size() == 0) {
         cout << "Inventory is empty!" << endl;
+
+        return;
     }
 
     for(int i = 0; i < this->inventory.size(); ++i) {
