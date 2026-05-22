@@ -161,4 +161,6 @@ make
 ./MainExecutable
  ## Testing
 We used unit testing to test and validate our project. We made sure to test every function within each class to ensure proper functionality, providing necessary in-game inputs to validate each function. We also ran our game through a large number of different scenarios to ensure that the different aspects and features of the game were correctly implemented.
+<img width="482" alt="Screenshot 2024-12-06 at 11 34 03 AM" src="https://github.com/user-attachments/assets/8e3680f0-8620-4b28-af68-7e6cf4128053">
+
  
