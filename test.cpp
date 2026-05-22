@@ -107,6 +107,22 @@ TEST(CharacterTest, gender) {
     dragon->setGender("male");
     EXPECT_EQ (dragon->getGender(),"male");
 }
+TEST(CharacterTest, fullHealth) {
+    Character *dragon = new Dragon;
+    dragon->setHP(100);
+    EXPECT_TRUE(dragon->atFullHealth());
+}
+TEST(CharacterTest, notFullHealth) {
+    Character *dragon = new Dragon;
+    dragon->setHP(50);
+    EXPECT_FALSE(dragon->atFullHealth());
+}
+TEST(CharacterTest, rejuvinate) {
+    Character *dragon = new Dragon;
+    dragon->setHP(50);
+    dragon->rejuvinate();
+    EXPECT_TRUE(dragon->getHP() == 100);
+}
 
 // ==================================================
 
@@ -579,7 +595,6 @@ TEST(BattleSystemTest, PlayerUsesItem) {
    EXPECT_EQ(player->getInventorySize(), 0); // Inventory is empty after item use
 
    delete player;
-   delete item;
 }
 
 // test input 3 -2 3 -1 2
@@ -677,8 +692,7 @@ TEST(BattleSystemTest, CorrectXp){
 }
 TEST(BattleSystemTest, LevelUpStats){
     Character* player = new Wizard();
-   player->setHP(100);
-   player->setAttack(50);
+  
 
 
    Enemy* enemy = new RandomEnemy();
@@ -691,8 +705,8 @@ TEST(BattleSystemTest, LevelUpStats){
    battle.startBattle(player, enemy, 1);
 
 
-   EXPECT_EQ(120, player->getHP());
-   EXPECT_EQ(70, player->getAttack());
+   EXPECT_EQ(130, player->getHP());
+   EXPECT_EQ(35, player->getAttack());
 
 
    delete player;

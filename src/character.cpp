@@ -8,7 +8,7 @@ using namespace std;
 // Default constructor
 Character::Character()
     : name(""), age(0), level(1), gender(""), species(""),
-      xp(0), attack(10), hp(100), defense(10) {}
+      xp(0), attack(10), hp(100), defense(10), maxHp(100) {}
 
 // Getters
 string Character::getName() const { return name; }
@@ -20,12 +20,18 @@ int Character::getXP() const { return xp; }
 int Character::getAttack() const { return attack; }
 int Character::getHP() const { return hp; }
 int Character::getDefense() const { return defense; }
+bool Character::atFullHealth() {return this->hp == this->maxHp;}
 
 // Setters
 void Character::setLevel(int level) { this->level = level; }
 void Character::setXP(int xp) { this->xp = xp; }
 void Character::setAttack(int attack) { this->attack = attack; }
-void Character::setHP(int hp) { this->hp = hp; }
+void Character::setHP(int hp) { 
+    this->hp = hp;
+    if(this->maxHp < hp) {
+        this->maxHp = hp;
+    }
+ }
 void Character::setDefense(int defense) { this->defense = defense; }
 void Character::setName(string name) { this->name = name; }
 void Character::setAge(int age) { this->age = age; }
@@ -46,7 +52,11 @@ void Character::levelUp(){
     level += 1;
     xp = xp - 100;
     attack += 20;
-    hp += 20;
+    maxHp += 20;
+}
+
+void Character::rejuvinate() {
+    this->hp = this->maxHp;
 }
 
 // Print character info

@@ -12,7 +12,7 @@
 
 void Game::startGame() {
     this->difficulty = difficulty; // FIXME: Implement difficulty
-    cout << "Welcome to the game! The difficulty is set to " << difficulty << "." << endl;
+    cout << "Welcome to the game!" << endl;
 
     // Character Creation
     string name, gender, species;
@@ -59,14 +59,17 @@ void Game::startGame() {
             FinalBoss* bigBoss = new FinalBoss(); 
             battleSystem.startBattle(player, bigBoss, runChance);
 
-            if (player->getHP() > 0) {
+            if (bigBoss->getHP() <= 0) {
                 cout << "Congratulations! You defeated the Big Boss and completed the game!" << endl;
+                delete bigBoss;
+                break; // End the game after the final boss
+            } else if (player->getHP() > 0){
+                continue;
             } else {
                 cout << "The Big Boss has defeated you." << endl << "Game Over." << endl;
+                delete bigBoss;
+                break; // End the game after the final boss
             }
-
-            delete bigBoss;
-            break; // End the game after the final boss
         }
         cout << "You move forward on your journey..." << endl;
     
@@ -94,8 +97,10 @@ void Game::startGame() {
             cout << "A Mini-Boss appears!" << endl;
             MiniBoss* miniBoss = new MiniBoss();
             battleSystem.startBattle(player, miniBoss, runChance); // No escape for mini-boss fights
+            if (miniBoss->getHP() <= 0){
+                miniCount++;
+            }
             delete miniBoss;
-            miniCount++;
         } 
           else if (choice == 3) {
             player->printCharacterInfo();

@@ -7,7 +7,7 @@ using std::string;
 
 class Enemy {
   public:
-      Enemy() : name("NoName"), type("NoType"), gender("NoGender") {};
+      Enemy() : name("Monster"), type("monster"), gender("monster") {};
 
       string getName() const;
       int getLevel() const;
