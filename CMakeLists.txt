@@ -25,7 +25,8 @@ src/enemy.cpp
 src/finalBoss.cpp
 src/miniBoss.cpp
 src/randomEnemy.cpp
-src/battleSystem.cpp )
+src/battleSystem.cpp
+src/game.cpp )
 
 # Test executable
 ADD_EXECUTABLE(UnitTests 
@@ -45,7 +46,8 @@ src/enemy.cpp
 src/finalBoss.cpp
 src/miniBoss.cpp
 src/randomEnemy.cpp 
-src/battleSystem.cpp)
+src/battleSystem.cpp
+src/game.cpp)
 
 # Link Google Test libraries to the UnitTests executable
 target_link_libraries(UnitTests gtest gtest_main)
